@@ -1,8 +1,8 @@
 # ts-sofort
 
-Run [TypeScript](https://www.typescriptlang.org/) code on [Node.js](https://nodejs.org/), transpiling with [esbuild](https://esbuild.github.io/).
+Run [TypeScript](https://www.typescriptlang.org/) code on [Node.js](https://nodejs.org/) quickly.
 
-May or may not be fast. Don't know.
+It first tranpiles and bundles your TypeScript code using [esbuild](https://esbuild.github.io/), then immediately runs the output code.
 
 
 ## API
