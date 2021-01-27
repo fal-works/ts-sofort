@@ -15,7 +15,7 @@ export type Options = {
   onWarn?: (message: esbuild.Message) => void;
 
   /**
-   * If set to `true`, the transpiled and bundled JavaScript code (`*.tmp.js`)
+   * If set to `true`, the transpiled and bundled JavaScript code (`*.tmp.mjs`)
    * will not be removed after the execution.
    */
   preserveTmpFile?: boolean;
