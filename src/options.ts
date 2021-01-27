@@ -4,7 +4,14 @@ import esbuild from "esbuild";
  * Options for ts-node-fast.
  */
 export type Options = {
-  /** Defaults to `console.warn()`. */
+  /**
+   * Regular expression that match module paths to be marked as external
+   * (not bundled). Defaults to `/^[^\\.]/` so that only the modules with
+   * relative paths (starts with a dot) will be bundled.
+   */
+  externalModule?: RegExp;
+
+  /** Defaults to a function that calls `console.warn()`. */
   onWarn?: (message: esbuild.Message) => void;
 
   /**

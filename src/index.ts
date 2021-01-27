@@ -6,7 +6,6 @@ import { createTimeLogger } from "./util.js";
 
 import type { Options, EsbuildOptions } from "./options.js";
 
-const absoluteAsExternal = regexpExternals(/^[^\\.]/);
 const target = `node${process.version.slice(1)}`;
 
 /**
@@ -33,7 +32,9 @@ export const run = async (
     format: "esm",
     entryPoints: [entryPoint],
     ...esbuildOptions,
-    plugins: [absoluteAsExternal].concat(esbuildOptions.plugins || []),
+    plugins: [regexpExternals(options.externalModule || /^[^\\.]/)].concat(
+      esbuildOptions.plugins || []
+    ),
   });
   const onWarn = options.onWarn || ((s: unknown) => console.warn(s));
   buildResult.warnings.forEach(onWarn);
