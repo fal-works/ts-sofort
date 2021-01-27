@@ -7,6 +7,9 @@ import { defaultOptions } from "./options.js";
 
 import type { Options, EsbuildOptions } from "./options";
 
+/**
+ * Target environment to be passed to `esbuild.build()`.
+ */
 const target = `node${process.version.slice(1)}`;
 
 /**
