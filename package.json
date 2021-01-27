@@ -1,0 +1,38 @@
+{
+  "name": "@fal-works/ts-node-fast",
+  "description": "Run TypeScript code on Node.js, transpiling with esbuild.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": "FAL",
+  "keywords": [],
+  "files": [
+    "lib",
+    "src"
+  ],
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "type": "module",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "@fal-works/esbuild-plugin-regexp-externals": "^0.1.0",
+    "esbuild": "^0.8.36"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.22",
+    "@typescript-eslint/eslint-plugin": "4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
+    "eslint": "7.18.0",
+    "eslint-config-prettier": "^7.2.0",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.1.3"
+  },
+  "scripts": {
+    "build": "rimraf lib && tsc && npm run format:lib",
+    "preformat:lib": "eslint --fix --no-ignore lib/**/*.{js,ts}",
+    "format:lib": "prettier --write lib/**/*.{js,ts}",
+    "lint": "eslint src/**/*.ts"
+  }
+}
