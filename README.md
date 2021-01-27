@@ -2,7 +2,7 @@
 
 Run [TypeScript](https://www.typescriptlang.org/) code on [Node.js](https://nodejs.org/) quickly.
 
-It first tranpiles and bundles your TypeScript code using [esbuild](https://esbuild.github.io/), then immediately runs the output code.
+It first tranpiles and bundles your TypeScript code using [esbuild](https://esbuild.github.io/) (which should be quite fast), then immediately runs the output JavaScript code.
 
 
 ## API
@@ -10,8 +10,9 @@ It first tranpiles and bundles your TypeScript code using [esbuild](https://esbu
 ```js
 import { run } from "ts-sofort";
 
-const options = {};        // not required
-const esbuildOptions = {}; // notrequired
+const entryPoint = "path/to/your/script.ts";
+const options = {};         // not required
+const esbuildOptions = {};  // not required
 
-run("scripts/dev.ts", options, esbuildOptions);
+run(entryPoint, options, esbuildOptions);
 ```
