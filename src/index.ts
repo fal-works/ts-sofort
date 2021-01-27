@@ -22,6 +22,7 @@ export const run = async (
 ): Promise<void> => {
   const log = createTimeLogger(entryPoint);
 
+  await fs.promises.open(entryPoint, "r"); // throw if absent
   const outfile = `${entryPoint}.tmp.mjs`;
 
   const buildResult = await esbuild.build({
