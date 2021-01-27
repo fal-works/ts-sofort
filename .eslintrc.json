@@ -16,7 +16,7 @@
   "overrides": [
     // config with basic rules
     {
-      "files": ["src/**/*.ts"],
+      "files": ["src/**/*.ts", "bin/**/*.js"],
       "extends": ["eslint:recommended", "prettier"]
     },
 
@@ -43,7 +43,7 @@
 
     // config just for pre-formatting purpose
     {
-      "files": ["lib/**/*.{js,ts}"],
+      "files": ["**/*.js", "lib/**/*.ts"],
       "rules": {
         "lines-around-comment": [
           "error",

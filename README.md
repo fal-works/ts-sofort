@@ -16,3 +16,18 @@ const esbuildOptions = {};  // not required
 
 run(entryPoint, options, esbuildOptions);
 ```
+
+
+## CLI
+
+Use `ts-sofort` command and pass the entry point filepath of your TypeScript code.
+
+E.g. in your `package.json`, something like this:
+
+```json
+{
+  "scripts": {
+    "my-script": "ts-sofort my-script.ts",
+  }
+}
+```

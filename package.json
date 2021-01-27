@@ -7,11 +7,15 @@
   "keywords": [],
   "files": [
     "lib",
-    "src"
+    "src",
+    "bin"
   ],
   "main": "lib/index.js",
   "module": "lib/index.js",
   "type": "module",
+  "bin": {
+    "ts-sofort": "bin/index.js"
+  },
   "directories": {
     "lib": "lib"
   },
