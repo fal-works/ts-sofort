@@ -28,7 +28,8 @@ export const run = async (
     options
   );
 
-  await fs.promises.open(entryPoint, "r"); // throw if absent
+  const file = await fs.promises.open(entryPoint, "r"); // throw if absent
+  await file.close();
   const outfile = `${entryPoint}.tmp.mjs`;
 
   const buildResult = await esbuild.build({
