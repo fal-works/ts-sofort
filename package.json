@@ -1,6 +1,6 @@
 {
   "name": "ts-sofort",
-  "description": "Run TypeScript code on Node.js, transpiling with esbuild.",
+  "description": "Run TypeScript code on Node.js quickly using esbuild.",
   "version": "0.1.0",
   "license": "MIT",
   "author": "FAL",
