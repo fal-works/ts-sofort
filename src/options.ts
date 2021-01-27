@@ -22,6 +22,15 @@ export type Options = {
 };
 
 /**
+ * Default values of options.
+ */
+export const defaultOptions: Readonly<Required<Options>> = Object.freeze({
+  externalModule: /^[^\\.]/,
+  onWarn: (s: unknown) => console.warn(s),
+  preserveTmpFile: false,
+});
+
+/**
  * Options for esbuild.
  */
 export type EsbuildOptions = Pick<

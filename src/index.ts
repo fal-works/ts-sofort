@@ -3,8 +3,9 @@ import * as path from "path";
 import esbuild from "esbuild";
 import { regexpExternals } from "@fal-works/esbuild-plugin-regexp-externals";
 import { createTimeLogger } from "./util.js";
+import { defaultOptions } from "./options.js";
 
-import type { Options, EsbuildOptions } from "./options.js";
+import type { Options, EsbuildOptions } from "./options";
 
 const target = `node${process.version.slice(1)}`;
 
@@ -16,10 +17,16 @@ const target = `node${process.version.slice(1)}`;
  */
 export const run = async (
   entryPoint: string,
-  options: Options = {},
+  options?: Options,
   esbuildOptions: EsbuildOptions = {}
 ): Promise<void> => {
   const log = createTimeLogger(entryPoint);
+
+  const { externalModule, onWarn, preserveTmpFile } = Object.assign(
+    {},
+    defaultOptions,
+    options
+  );
 
   await fs.promises.open(entryPoint, "r"); // throw if absent
   const outfile = `${entryPoint}.tmp.mjs`;
@@ -32,11 +39,10 @@ export const run = async (
     format: "esm",
     entryPoints: [entryPoint],
     ...esbuildOptions,
-    plugins: [regexpExternals(options.externalModule || /^[^\\.]/)].concat(
+    plugins: [regexpExternals(externalModule)].concat(
       esbuildOptions.plugins || []
     ),
   });
-  const onWarn = options.onWarn || ((s: unknown) => console.warn(s));
   buildResult.warnings.forEach(onWarn);
   const cleanup = () => fs.promises.unlink(outfile);
 
@@ -45,11 +51,11 @@ export const run = async (
   try {
     await import("file:///" + path.resolve(outfile));
   } catch (err: unknown) {
-    if (!options.preserveTmpFile) await cleanup();
+    if (!preserveTmpFile) await cleanup();
     throw err;
   }
 
   log("Execution complete.");
 
-  if (!options.preserveTmpFile) await cleanup();
+  if (!preserveTmpFile) await cleanup();
 };
