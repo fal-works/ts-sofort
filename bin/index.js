@@ -3,7 +3,7 @@ import { run } from "../lib/index.js";
 const arg = process.argv[2];
 
 if (!arg || arg === "--help") {
-  console.log("Command usage:\n  ts-node-fast (filename)\n");
+  console.log("Command usage:\n  ts-sofort (filename)\n");
   process.exit(0);
 }
 

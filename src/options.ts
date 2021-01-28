@@ -1,7 +1,7 @@
 import esbuild from "esbuild";
 
 /**
- * Options for ts-node-fast.
+ * Options for ts-sofort.
  */
 export type Options = {
   /**

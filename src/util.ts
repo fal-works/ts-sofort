@@ -1,6 +1,6 @@
 import { performance } from "perf_hooks";
 
-const prefix = "[ts-node-fast] ";
+const prefix = "[ts-sofort] ";
 
 /**
  * Create a logging function which also prints elapsed time from the last call.
