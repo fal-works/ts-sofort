@@ -53,7 +53,9 @@ export const run = async (
   log("Conversion complete.");
 
   try {
-    await import("file:///" + path.resolve(outfile));
+    const file = "file:///" + path.resolve(outfile);
+    const { default: exported } = (await import(file)) as { default?: unknown };
+    await Promise.resolve(exported);
   } catch (err: unknown) {
     if (!preserveTmpFile) await cleanup();
     throw err;

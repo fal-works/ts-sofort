@@ -2,8 +2,8 @@
 
 Run [TypeScript](https://www.typescriptlang.org/) code on [Node.js](https://nodejs.org/) quickly.
 
-It first tranpiles and bundles your TypeScript code using [esbuild](https://esbuild.github.io/) (which should be quite fast), then immediately runs the output JavaScript code.
-
+- It first tranpiles and bundles your TypeScript code using [esbuild](https://esbuild.github.io/) (which should be quite fast), then immediately runs the output JavaScript code.
+- It also prints the time taken for both code conversion and execution. If your entry point has a default export of any `Promise` type, `ts-sofort` awaits until the `Promise` is resolved.
 
 ## API
 

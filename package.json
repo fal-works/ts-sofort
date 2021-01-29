@@ -1,7 +1,7 @@
 {
   "name": "ts-sofort",
   "description": "Run TypeScript code on Node.js quickly using esbuild.",
-  "version": "0.2.0",
+  "version": "0.3.0-alpha",
   "license": "MIT",
   "author": "FAL",
   "keywords": [
@@ -45,6 +45,7 @@
     "build": "tsc && npm run format:lib",
     "preformat:lib": "eslint --fix --no-ignore lib/**/*.{js,ts}",
     "format:lib": "prettier --write lib/**/*.{js,ts}",
-    "lint": "eslint src/**/*.ts"
+    "lint": "eslint src/**/*.ts",
+    "test-cli": "node bin/index.js test/cli.ts"
   }
 }
