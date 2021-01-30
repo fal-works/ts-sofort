@@ -11,7 +11,16 @@ Run [TypeScript](https://www.typescriptlang.org/) code on [Node.js](https://node
 
 Use `ts-sofort` command and pass the entry point filepath of your TypeScript code.
 
-E.g. in your `package.json`, something like this:
+```text
+Command:
+  ts-sofort [options] <filepath>
+  ts-sofort < -h | --help | -v | --version >
+options:
+  --external <pattern>  Regular expression string (escaped) for external module paths. (optional)
+  --preserveTmp         Do not remove temporal file. (optional)
+```
+
+For example in your `package.json`, something like this:
 
 ```json
 {
@@ -21,7 +30,7 @@ E.g. in your `package.json`, something like this:
 }
 ```
 
-The CLI has limited functionality compared to the API (e.g. you can't configure external modules).
+On CLI you can't pass esbuild options (which you don't need to in most cases).
 
 
 ## API

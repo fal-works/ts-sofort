@@ -1,7 +1,7 @@
 {
   "name": "ts-sofort",
   "description": "Run TypeScript code on Node.js quickly using esbuild.",
-  "version": "0.3.0",
+  "version": "0.4.0-alpha",
   "license": "MIT",
   "author": "FAL",
   "keywords": [
@@ -28,7 +28,8 @@
   },
   "dependencies": {
     "@fal-works/esbuild-plugin-regexp-externals": "^0.1.0",
-    "esbuild": "^0.8.36"
+    "esbuild": "^0.8.36",
+    "minimist": "^1.2.5"
   },
   "devDependencies": {
     "@types/node": "^14.14.22",

@@ -1,13 +1,40 @@
+import minimist from "minimist";
+import { help } from "./help.js";
 import { run } from "../lib/index.js";
+import { name, version } from "../package.json";
 
-const arg = process.argv[2];
+const args = minimist(process.argv.slice(2), {
+  alias: {
+    help: "h",
+    version: "v",
+  },
+});
 
-if (!arg || arg === "--help") {
-  console.log("Command usage:\n  ts-sofort (filename)\n");
-  process.exit(0);
-}
-
-run(arg).catch((err) => {
+/**
+ * @param {unknown} err
+ */
+const error = (err) => {
   console.error(err);
   process.exit(1);
-});
+};
+
+const firstArg = args._[0];
+
+if (!firstArg || args.help) {
+  help();
+  process.exit(0);
+}
+if (args.version) {
+  console.log(`${name} v${version}\n`);
+  process.exit(0);
+}
+if (1 < args._.length) error(new Error(`Too many arguments: ${args._}`));
+
+const externalModule = args.external ? new RegExp(args.external) : undefined;
+const preserveTmpFile =
+  args.preserveTmp === undefined ? undefined : !!args.preserveTmp;
+
+run(firstArg, {
+  externalModule,
+  preserveTmpFile,
+}).catch(error);

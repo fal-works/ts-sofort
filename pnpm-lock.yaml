@@ -1,6 +1,7 @@
 dependencies:
   '@fal-works/esbuild-plugin-regexp-externals': 0.1.0
   esbuild: 0.8.36
+  minimist: 1.2.5
 devDependencies:
   '@types/node': 14.14.22
   '@typescript-eslint/eslint-plugin': 4.14.1_5aaa83948f53bc6d11a4ce27d9931983
@@ -795,6 +796,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==
+  /minimist/1.2.5:
+    dev: false
+    resolution:
+      integrity: sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
   /ms/2.1.2:
     dev: true
     resolution:
@@ -1098,6 +1103,7 @@ specifiers:
   esbuild: ^0.8.36
   eslint: 7.18.0
   eslint-config-prettier: ^7.2.0
+  minimist: ^1.2.5
   prettier: ^2.2.1
   rimraf: ^3.0.2
   typescript: ^4.1.3
