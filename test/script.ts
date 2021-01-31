@@ -7,8 +7,8 @@ const sleep = (ms: number) => {
   });
 };
 
-// without default export
+// without default export:
 // sleep(1500);
 
-// with default export
+// with default export:
 export default sleep(1500);

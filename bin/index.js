@@ -35,6 +35,6 @@ const preserveTmpFile =
   args.preserveTmp === undefined ? undefined : !!args.preserveTmp;
 
 run(firstArg, {
-  externalModule,
+  externalModule, // fails
   preserveTmpFile,
 }).catch(error);

@@ -48,8 +48,9 @@
     "preformat:lib": "eslint --fix --no-ignore lib/**/*.{js,ts}",
     "format:lib": "prettier --write lib/**/*.{js,ts}",
     "lint": "eslint src/**/*.ts",
-    "test-cli": "node bin/index.js test/cli.ts",
     "update-info": "transcribe-json package.json -o package-info.js -t mjs -f name,version,author,license",
-    "postupdate-info": "prettier --write package-info.js"
+    "postupdate-info": "prettier --write package-info.js",
+    "test-api": "node test/run-script.js",
+    "test-cli": "node bin/index.js test/script.ts"
   }
 }
