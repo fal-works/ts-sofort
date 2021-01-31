@@ -28,14 +28,14 @@
   },
   "dependencies": {
     "@fal-works/esbuild-plugin-regexp-externals": "^0.1.0",
-    "esbuild": "^0.8.38",
+    "esbuild": "^0.8.36",
     "minimist": "^1.2.5"
   },
   "devDependencies": {
     "@types/node": "^14.14.22",
     "@typescript-eslint/eslint-plugin": "4.14.1",
     "@typescript-eslint/parser": "^4.14.1",
-    "eslint": "7.19.0",
+    "eslint": "7.18.0",
     "eslint-config-prettier": "^7.2.0",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
