@@ -2,7 +2,7 @@ import * as fs from "fs";
 import * as path from "path";
 import esbuild from "esbuild";
 import { regexpExternals } from "@fal-works/esbuild-plugin-regexp-externals";
-import { createTimeLogger } from "./util.js";
+import { createTimeLogger, getCoalescedValue } from "./util.js";
 import { defaultOptions } from "./options.js";
 
 import type { Options, EsbuildOptions } from "./options";
@@ -25,11 +25,10 @@ export const run = async (
 ): Promise<void> => {
   const log = createTimeLogger(entryPoint);
 
-  const { externalModule, onWarn, preserveTmpFile } = Object.assign(
-    {},
-    defaultOptions,
-    options
-  );
+  const getOption = getCoalescedValue(options || {}, defaultOptions);
+  const externalModule = getOption("externalModule");
+  const onWarn = getOption("onWarn");
+  const preserveTmpFile = getOption("preserveTmpFile");
 
   const file = await fs.promises.open(entryPoint, "r"); // throw if absent
   await file.close();
