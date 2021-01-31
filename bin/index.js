@@ -10,14 +10,6 @@ const args = minimist(process.argv.slice(2), {
   },
 });
 
-/**
- * @param {unknown} err
- */
-const error = (err) => {
-  console.error(err);
-  process.exit(1);
-};
-
 const firstArg = args._[0];
 
 if (!firstArg || args.help) {
@@ -28,7 +20,10 @@ if (args.version) {
   console.log(`${packageInfo.name} v${packageInfo.version}\n`);
   process.exit(0);
 }
-if (1 < args._.length) error(new Error(`Too many arguments: ${args._}`));
+if (1 < args._.length) {
+  console.error(`Too many arguments: ${args._}`);
+  process.exit(1);
+}
 
 const externalModule = args.external ? new RegExp(args.external) : undefined;
 const preserveTmpFile =
@@ -37,4 +32,7 @@ const preserveTmpFile =
 run(firstArg, {
   externalModule,
   preserveTmpFile,
-}).catch(error);
+}).catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
