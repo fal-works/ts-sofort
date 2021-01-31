@@ -35,6 +35,6 @@ const printBlock = (name, printCallback) => {
 
 export const help = () => {
   printBlock("Command", printCommandUsage);
-  printBlock("options", printOptions);
+  printBlock("Options", printOptions);
   console.log();
 };
