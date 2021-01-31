@@ -1,6 +1,8 @@
+const commandName = "ts-sofort";
+
 const printCommandUsage = () => {
-  console.log("ts-sofort [options] <filepath>");
-  console.log("ts-sofort < -h | --help | -v | --version >");
+  console.log(`${commandName} [options] <filepath>`);
+  console.log(`${commandName} <-h|--help|-v|--version>`);
 };
 
 const printOptions = () => {
