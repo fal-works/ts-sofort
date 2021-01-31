@@ -1,7 +1,7 @@
 import minimist from "minimist";
 import { help } from "./help.js";
 import { run } from "../lib/index.js";
-import { name, version } from "../package.json";
+import packageInfo from "../package-info.js";
 
 const args = minimist(process.argv.slice(2), {
   alias: {
@@ -25,7 +25,7 @@ if (!firstArg || args.help) {
   process.exit(0);
 }
 if (args.version) {
-  console.log(`${name} v${version}\n`);
+  console.log(`${packageInfo.name} v${packageInfo.version}\n`);
   process.exit(0);
 }
 if (1 < args._.length) error(new Error(`Too many arguments: ${args._}`));
