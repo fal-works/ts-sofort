@@ -4,13 +4,20 @@ const printCommandUsage = () => {
 };
 
 const printOptions = () => {
-  const argMap = {
-    "external <pattern>":
-      "Regular expression string (escaped) for external module paths. (optional)",
-    preserveTmp: "Do not remove temporal file. (optional)",
-  };
-  for (const [name, description] of Object.entries(argMap))
-    console.log(`--${name.padEnd(20)}${description}`);
+  const options = [
+    {
+      name: "external <pattern>",
+      description:
+        "Regular expression string (escaped) for external module paths. (optional)",
+    },
+    {
+      name: "preserveTmp",
+      description: "Do not remove temporal file. (optional)",
+    },
+  ];
+  const maxLen = Math.max(...options.map((option) => option.name.length));
+  for (const option of options)
+    console.log(`--${option.name.padEnd(maxLen + 2)}${option.description}`);
 };
 
 /**
