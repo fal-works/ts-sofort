@@ -9,15 +9,15 @@ const args = minimist(process.argv.slice(2), {
     version: "v",
   },
 });
-
 const firstArg = args._[0];
+
+if (args.version) {
+  console.log(`${packageInfo.name} v${packageInfo.version}\n`);
+  process.exit(0);
+}
 
 if (!firstArg || args.help) {
   help();
-  process.exit(0);
-}
-if (args.version) {
-  console.log(`${packageInfo.name} v${packageInfo.version}\n`);
   process.exit(0);
 }
 if (1 < args._.length) {
