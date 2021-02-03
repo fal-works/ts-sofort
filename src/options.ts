@@ -6,7 +6,7 @@ import esbuild from "esbuild";
 export type Options = {
   /**
    * Regular expression that match module paths to be marked as external
-   * (not bundled). Defaults to `/^[^\\.]/` so that only the modules with
+   * (not bundled). Defaults to `/^[^.]/` so that only the modules with
    * relative paths (starts with a dot) will be bundled.
    */
   externalModule?: RegExp;
@@ -25,7 +25,7 @@ export type Options = {
  * Default values of options.
  */
 export const defaultOptions: Readonly<Required<Options>> = Object.freeze({
-  externalModule: /^[^\\.]/,
+  externalModule: /^[^.]/,
   onWarn: (s: unknown) => console.warn(s),
   preserveTmpFile: false,
 });
