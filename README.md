@@ -4,7 +4,7 @@ Run [TypeScript](https://www.typescriptlang.org/) code on [Node.js](https://node
 
 - It first tranpiles and bundles your TypeScript code using [esbuild](https://esbuild.github.io/) (which should be quite fast), then immediately runs the output JavaScript code.
 - It also prints the time taken for both code conversion and execution. If your entry point has a default export of any `Promise` type, `ts-sofort` awaits until the `Promise` is resolved.
-- At default, module paths that do not start with dot `.` (i.e. the absolute paths) are marked as external and will not be bundled. The `RegExp` filter for this can be configured via API options.
+- At default, module paths that do not start with dot `.` (i.e. the absolute paths) are marked as external and will not be bundled. The `RegExp` filter for this can be configured via options (the expression must be valid in [Go language](https://golang.org/pkg/regexp/) as well).
 
 
 ## CLI
