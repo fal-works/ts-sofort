@@ -33,6 +33,7 @@
     "minimist": "^1.2.5"
   },
   "devDependencies": {
+    "@types/minimist": "^1.2.1",
     "@types/node": "^14.14.25",
     "@typescript-eslint/eslint-plugin": "4.15.0",
     "@typescript-eslint/parser": "^4.15.0",
