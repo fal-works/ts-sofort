@@ -10,7 +10,7 @@ export const createTimeLogger = (
 ): ((message: string) => void) => {
   let lastTime = performance.now();
 
-  return (message: string): void => {
+  return (message) => {
     const currentTime = performance.now();
     const duration = currentTime - lastTime;
 
