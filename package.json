@@ -29,20 +29,20 @@
   },
   "dependencies": {
     "@fal-works/esbuild-plugin-regexp-externals": "^1.1.0",
-    "esbuild": "^0.8.43",
+    "esbuild": "^0.8.44",
     "mri": "^1.1.6"
   },
   "devDependencies": {
     "@types/minimist": "^1.2.1",
-    "@types/node": "^14.14.25",
+    "@types/node": "^14.14.26",
     "@typescript-eslint/eslint-plugin": "4.15.0",
     "@typescript-eslint/parser": "^4.15.0",
     "eslint": "7.19.0",
     "eslint-config-prettier": "^7.2.0",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
-    "transcribe-json": "^0.1.0",
-    "typescript": "^4.1.4"
+    "transcribe-json": "^0.1.1",
+    "typescript": "^4.1.5"
   },
   "scripts": {
     "prebuild": "rimraf lib",
