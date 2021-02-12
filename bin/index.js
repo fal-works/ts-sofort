@@ -9,14 +9,14 @@ const args = mri(process.argv.slice(2), {
     version: "v",
   },
 });
-const firstArg = args._[0];
+const entryPoint = args._[0];
 
 if (args.version) {
   console.log(`${packageInfo.name} v${packageInfo.version}\n`);
   process.exit(0);
 }
 
-if (!firstArg || args.help) {
+if (args.help || !entryPoint) {
   help();
   process.exit(0);
 }
@@ -25,11 +25,12 @@ if (1 < args._.length) {
   process.exit(1);
 }
 
-const externalModule = args.external ? new RegExp(args.external) : undefined;
+const externalModule =
+  args.external === undefined ? undefined : new RegExp(args.external);
 const preserveTmpFile =
-  args.preserveTmp === undefined ? undefined : !!args.preserveTmp;
+  args.preserveTmp === undefined ? undefined : args.preserveTmp !== undefined;
 
-run(firstArg, {
+run(entryPoint, {
   externalModule,
   preserveTmpFile,
 }).catch((err) => {
