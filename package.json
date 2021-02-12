@@ -30,7 +30,7 @@
   "dependencies": {
     "@fal-works/esbuild-plugin-regexp-externals": "^1.1.0",
     "esbuild": "^0.8.43",
-    "minimist": "^1.2.5"
+    "mri": "^1.1.6"
   },
   "devDependencies": {
     "@types/minimist": "^1.2.1",

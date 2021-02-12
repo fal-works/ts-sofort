@@ -1,9 +1,9 @@
-import minimist from "minimist";
+import mri from "mri";
 import { help } from "./help.js";
 import { run } from "../lib/index.js";
 import packageInfo from "../package-info.js";
 
-const args = minimist(process.argv.slice(2), {
+const args = mri(process.argv.slice(2), {
   alias: {
     help: "h",
     version: "v",
