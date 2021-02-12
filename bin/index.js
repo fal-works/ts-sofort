@@ -30,7 +30,7 @@ const externalModule =
 const preserveTmpFile =
   args.preserveTmp === undefined ? undefined : args.preserveTmp !== undefined;
 
-run(entryPoint, {
+export default run(entryPoint, {
   externalModule,
   preserveTmpFile,
 }).catch((err) => {
